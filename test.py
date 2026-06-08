@@ -171,14 +171,14 @@ def delete_student():
 def find_student():
     check = False
     while True:
-        keyword  = input('Nhập thông tin cần tìm kiếm (tên / mã SV): ').strip()
+        keyword  = input('Nhập thông tin cần tìm kiếm (tên / mã SV): ').strip().upper()
         if keyword == '':
             print('Thông tin đang trống')
         else:
             break
     print('--- KẾT QUẢ TÌM KIẾM ---')
     for student in student_list:
-        if student['id'] == keyword.upper() or keyword.title() in student['name']:
+        if student['id'] == keyword or keyword in student['name'].upper():
             print(f'{student['id']} - {student['name']}')
             check = True
     if not check:
